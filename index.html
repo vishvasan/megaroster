@@ -10,19 +10,18 @@
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
-    <h1>a Factory of People</h1>
+    <h1>Megaroster</h1>
 
     <section>
       <div>
-        <form>
-          <p>
-            <label for="personName">Name</label>
-            <input type="text" id="personName">
-          </p>
-
-            <input type='button' onclick='changeText2()' value='Submit' />
-          
-        </form>
+        Name:
+        <input type="text" id="personName">
+        <br>
+        <p>Your name is: <b id='boldStuff'></b> 
+        </p>
+        <p>List of names:</p>
+        <ol id="demo"></ol>
+        <input type='button' onclick='changeText()' value='Submit' />
       </div>
 
       <div class="details"></div>
