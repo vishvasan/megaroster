@@ -1,4 +1,3 @@
-const items = {}
 const list = document.getElementById('demo');
 
 function changeText() {
@@ -7,4 +6,8 @@ function changeText() {
     const entry = document.createElement('li');
     entry.appendChild(document.createTextNode(personName));
     list.appendChild(entry);
+}
+
+function deleteText() {
+    list.parentNode.removeChild(list[0]);
 }
