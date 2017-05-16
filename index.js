@@ -9,5 +9,7 @@ function changeText() {
 }
 
 function deleteText() {
-    list.parentNode.removeChild(list[0]);
+    list.removeChild(list.childNodes[0]);
+
+    
 }
