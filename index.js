@@ -10,6 +10,14 @@ function changeText() {
 
 function deleteText() {
     list.removeChild(list.childNodes[0]);
+}
 
-    
+function promoteText() {
+    document.getElementById("demo").addEventListener("click", text);
+}
+
+function text(color)
+{
+   document.body.style.backgroundColor = color;
+
 }
