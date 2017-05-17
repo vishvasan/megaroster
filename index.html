@@ -1,39 +1,3 @@
-<!--<!DOCTYPE html>
-<html class="no-js">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Megaroster</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
-    <link rel="stylesheet" href="index.css">
-  </head>
-  <body>
-    <h1>Megaroster</h1>
-
-    <section>
-      <div>
-        Name:
-        <input type="text" id="personName">
-        <br>
-        <p>Your name is: <b id='boldStuff'></b> 
-        </p>
-        <h2>List of names:</h2>
-        <ol id="demo"></ol>
-        <input type='button' onclick='changeText()' value='Submit' />
-        <input type='button' onclick='deleteText()' value='Delete' />
-        <input type='button' onclick='promoteText()' value='Promote' />
-      </div>
-
-      <div class="details"></div>
-    </section>
-
-    <script src="index.js"></script>
-  </body>
-</html>-->
-
-
 <!DOCTYPE html>
 <html class="no-js">
   <head>
@@ -55,6 +19,8 @@
               type="text"
               name="studentName"
               placeholder="Enter student name"
+              autofocus
+              required
             >
           </div>
           <div class="small-3 columns">
@@ -65,7 +31,14 @@
 
       <div class="row">
         <div class="medium-offset-2 medium-8 columns">
-          <ul id="studentList"></ul>
+          <ul id="studentList">
+            <li class="student template">
+              <span class="student-name"></span>
+              <span class="actions expanded button-group">
+                <button type="button" class="remove button alert">Remove</button>
+              </span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
