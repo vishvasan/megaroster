@@ -66,37 +66,23 @@ const megaroster = {
   }
 }
 
-megaroster.init('#studentList')
-
-
-
-// $('.liEllipsis').on('click', function () {
-//     $('.selected').removeClass('selected');
-//     $(this).addClass('selected');
-// });
+myStorage = localStorage;
+localStorage.setItem('student', 'v');
 
 // $('.upbutton').on('click', function () {
-//     var $currentElement = $('#ul_li_SubCategories .selected');
-//     moveUp($currentElement);
-// });
-    
-// $('.downbutton').on('click', function () {
-//     var $currentElement = $('#ul_li_SubCategories .selected');
-//     moveDown($currentElement);
-// });
-
-// var moveUp = function ($currentElement) {
-//     var hook = $currentElement.prev('.liEllipsis');
+//     var hook = $(this).closest('.liEllipsis').prev('.liEllipsis');
 //     if (hook.length) {
-//         var elementToMove = $currentElement.detach();
+//         var elementToMove = $(this).closest('.liEllipsis').detach();
 //         hook.before(elementToMove);
 //     }
-// };
-
-// var moveDown = function ($currentElement) {
-//     var hook = $currentElement.next('.liEllipsis');
+// });
+// $('.downbutton').on('click', function () {
+//     var hook = $(this).closest('.liEllipsis').next('.liEllipsis');
 //     if (hook.length) {
-//         var elementToMove = $currentElement.detach();
+//         var elementToMove = $(this).closest('.liEllipsis').detach();
 //         hook.after(elementToMove);
 //     }
-// };
+// });
+
+
+megaroster.init('#studentList')
