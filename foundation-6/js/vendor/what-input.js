@@ -293,7 +293,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  /*
 	    ---------------
 	    Init
-
 	    don't start script unless browser cuts the mustard
 	    (also passes if polyfills are used)
 	    ---------------

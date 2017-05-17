@@ -1,29 +1,34 @@
 $(document).foundation()
 
 const megaroster = {
-    students:[],
+  students: [],
 
-    init(listSelector) {
-        this.studentList = document.querySelector('#new-student')
-        this.max = 0
-        document 
-            .querySelector('#new-student')
-            .addEventListener('submit', this.addStudent.bind(this))
-    },
+  init(listSelector) {
+    this.studentList = document.querySelector(listSelector)
+    this.max = 0
+    document
+      .querySelector('#new-student')
+      .addEventListener('submit', this.addStudent.bind(this))
+  },
 
-    addStudent(ev) {
-        ev.preventDefault()
-        const f = ev.target
-        const student = {
-            id: this.max + 1,
-            name: f.studentName.value,
-        }
-        this.buildListItem(student)
-        this.max++
-    },
+  addStudent(ev) {
+    ev.preventDefault()
+    const f = ev.target
+    const student = {
+      id: this.max + 1,
+      name: f.studentName.value,
+    }
+    this.students.push(student)
+    const listItem = this.buildListItem(student)
+    this.studentList.appendChild(listItem)
+    this.max ++
+  },
 
-    buildListItem(student) {
-
-    },
+  buildListItem(student) {
+    const li = document.createElement('li')
+    li.textContent = student.name
+    li.dataset.id = student.id
+    return li
+  },
 }
 megaroster.init('#studentList')
