@@ -13,11 +13,11 @@ function deleteText() {
 }
 
 function promoteText() {
-    list.onclick = function() {chBackcolor(list.childNodes[0])}
+    document.getElementById("demo").addEventListener("click", text);
 }
 
-function chBackcolor(color)
+function text(color)
 {
-   document.body.style.background = color;
+   document.body.style.backgroundColor = color;
 
 }
