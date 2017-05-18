@@ -114,6 +114,10 @@ class Megaroster {
       .querySelector('button.move-up')
       .addEventListener('click', this.moveUp.bind(this, student))
 
+      li
+      .querySelector('button.move-down')
+      .addEventListener('click', this.moveDown.bind(this, student))
+
   }
 
   moveUp(student, ev) {
@@ -134,6 +138,32 @@ class Megaroster {
       this.save()
     }
   }
+
+  moveDown(student, ev) {
+    const btn = ev.target
+    const li = btn.closest('.student')
+
+    const index = this.students.findIndex((currentStudent, i) => {
+      return currentStudent.id === student.id
+    })
+
+    if (index > 0) {
+      this.studentList.insertBefore(li.nextSibling, li)
+
+      const previousStudent = this.students[index - 1]
+      this.students[index - 1] = student
+      this.students[index] = previousStudent
+
+      this.save()
+    }
+  }
+
+  allowEditing(ev) {
+    document.getElementById("studentList").contentEditable = true;
+    document.getElementById("demo").innerHTML = "The p element above is now editable. Try to change its text.";
+  }
+
+  
 
   removeClassName(el, className){
     el.className = el.className.replace(className, '').trim()
