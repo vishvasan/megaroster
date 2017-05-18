@@ -22,10 +22,12 @@ const megaroster = {
 
   load() {
     const rosterString = localStorage.getItem('roster')
-    const rosterArray = JSON.parse(rosterString)
-    rosterArray
-      .reverse()
-      .map(this.addStudent.bind(this))
+    if (rosterString) {
+      const rosterArray = JSON.parse(rosterString)
+      rosterArray
+        .reverse()
+        .map(this.addStudent.bind(this))
+    }
   },
 
   removeStudent(ev) {
@@ -41,6 +43,20 @@ const megaroster = {
     }
 
     li.remove()
+    this.save()
+  },
+
+  promoteStudent(student, ev) {
+    const btn = ev.target
+    const li = btn.closest('.student')
+    student.promoted = !student.promoted
+
+    if (student.promoted) {
+      li.classList.add('promoted')
+    } else {
+      li.classList.remove('promoted')
+    }
+    
     this.save()
   },
 
@@ -78,9 +94,18 @@ const megaroster = {
     li.querySelector('.student-name').textContent = student.name
     li.dataset.id = student.id
 
+    if(student.promoted) {
+      li.classList.add('promoted')
+    }
+
     li
       .querySelector('button.remove')
       .addEventListener('click', this.removeStudent.bind(this))
+
+    li
+      .querySelector('button.promote')
+      .addEventListener('click', this.promoteStudent.bind(this, student))
+
     return li
   },
 
