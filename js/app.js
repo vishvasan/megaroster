@@ -159,8 +159,7 @@ class Megaroster {
   }
 
   allowEditing(ev) {
-    document.getElementById("studentList").contentEditable = true;
-    document.getElementById("demo").innerHTML = "The p element above is now editable. Try to change its text.";
+    document.getElementById(".student").contentEditable = true;
   }
 
   
