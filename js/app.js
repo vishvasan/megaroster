@@ -151,12 +151,12 @@ class Megaroster {
       return currentStudent.id === student.id
     })
 
-    if (index > 0) {
+    if (index < this.students.length - 1) {
       this.studentList.insertBefore(li.nextSibling, li)
 
-      const previousStudent = this.students[index - 1]
-      this.students[index - 1] = student
-      this.students[index] = previousStudent
+      const nextStudent = this.students[index - 1]
+      this.students[index + 1] = student
+      this.students[index] = nextStudent
 
       this.save()
     }
