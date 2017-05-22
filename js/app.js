@@ -119,9 +119,16 @@ class Megaroster {
       .addEventListener('click', this.moveDown.bind(this, student))
 
       li
-      .querySelector('button.allow-editing')
-      .addEventListener('click', this.allowEditing.bind(this, student))
+      .querySelector('[contenteditable]')
+      .addEventListener('blur', this.saveOnEnter.bind(this))
 
+  }
+
+  saveOnEnter(ev) {
+    if (ev.keyCode === 13) {
+      ev.preventDefault()
+      ev.target.blur()
+    }
   }
 
   moveUp(student, ev) {
@@ -163,10 +170,7 @@ class Megaroster {
   }
 
   allowEditing(student, ev) {
-    const btn = ev.target
-    const li = btn.closest('.student')
-    document.getElementsByName(".student").contentEditable = true;
-    
+    student.name = ev.target.textContent
     this.save()
   }
 
