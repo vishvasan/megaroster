@@ -120,7 +120,11 @@ class Megaroster {
 
       li
       .querySelector('[contenteditable]')
-      .addEventListener('blur', this.saveOnEnter.bind(this))
+      .addEventListener('blur', this.updateName.bind(this, student))
+
+      li
+      .querySelector('[contenteditable]')
+      .addEventListener('keypress', this.saveOnEnter.bind(this))
 
   }
 
@@ -130,6 +134,12 @@ class Megaroster {
       ev.target.blur()
     }
   }
+
+  updateName(student, ev) {
+    student.name = ev.target.textContent
+    this.save()
+  }
+  
 
   moveUp(student, ev) {
     const btn = ev.target
@@ -167,11 +177,6 @@ class Megaroster {
 
       this.save()
     }
-  }
-
-  allowEditing(student, ev) {
-    student.name = ev.target.textContent
-    this.save()
   }
 
   

@@ -6,15 +6,20 @@
   border: 1px solid #ddd;
   padding: 0.75rem 1.25rem;
   height: 4rem;
+  transition: 0.25s;
 }
 
 .student + .student {
   border-top: none;
 }
 
-span.student-name {
-  line-height: 40px;
+.student-name {
+  float: left;
+  line-height: 38px;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
+  width: calc(100% - 195px)
 }
 
 .actions {
@@ -22,18 +27,22 @@ span.student-name {
   margin-bottom: 0;
 }
 
+.actions.button {
+  padding: 0.5em 0.69em 0.5em 0.64em;
+  font-size: 1.2rem
+}
+
+.actions.button.hover {
+  transform: scale(1.1);
+}
+
 .promoted {
   background-color: #FFA807;
   border-color: #FFC656;
 }
 
-.student:first-child button.move-up {
-  background-color: #ddd;
-  color: #eee;
-  cursor: not-allowed;
-}
-
-.student:nth-last-child(2) button.move-down {
+.student:first-child button.move-up,
+.student:last-child button.move-down {
   background-color: #ddd;
   color: #eee;
   cursor: not-allowed;
